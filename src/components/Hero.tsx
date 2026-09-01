@@ -6,6 +6,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Hero() {
+  const scrollToNextSection = () => {
+    const nextSection = document.getElementById("colecoes");
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -62,15 +69,51 @@ export default function Hero() {
         </motion.div>
       </div>
       
-      {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block"
+      {/* Luxury Scroll Indicator */}
+      <motion.button 
+        type="button"
+        onClick={scrollToNextSection}
+        aria-label="Rolar para ver as coleções"
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5 group cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-gold-500)] rounded-full px-3 py-1 transition-all duration-300"
       >
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent"></div>
-      </motion.div>
+        <span className="text-[10px] tracking-[0.3em] uppercase font-light text-white/60 group-hover:text-[var(--color-gold-400)] transition-colors duration-300 select-none">
+          Explorar
+        </span>
+
+        {/* Minimalist Pill with glowing bead */}
+        <div className="relative w-[18px] h-8 rounded-full border border-white/20 group-hover:border-[var(--color-gold-500)]/60 transition-colors duration-300 flex justify-center p-1 backdrop-blur-[2px]">
+          <motion.div 
+            animate={{ 
+              y: [0, 12, 0],
+              opacity: [0.4, 1, 0.4],
+              scale: [0.85, 1.1, 0.85]
+            }}
+            transition={{ 
+              duration: 2.2, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            className="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-white via-[var(--color-silver-400)] to-[var(--color-gold-400)] shadow-[0_0_8px_rgba(212,175,55,0.7)]"
+          />
+        </div>
+
+        {/* Delicate vertical guidance line */}
+        <motion.div
+          animate={{
+            scaleY: [0.7, 1.1, 0.7],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 2.2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="w-[1px] h-4 bg-gradient-to-b from-[var(--color-gold-500)]/40 via-white/20 to-transparent group-hover:from-[var(--color-gold-400)] group-hover:h-6 transition-all duration-300"
+        />
+      </motion.button>
     </section>
   );
 }
