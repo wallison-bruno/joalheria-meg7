@@ -37,7 +37,7 @@ export default function SocialProof() {
   ];
 
   return (
-    <section id="depoimentos" className="py-24 bg-[#0a0a0a] border-t border-white/5">
+    <section id="depoimentos" className="py-28 bg-[#08080a] border-t border-white/5">
       <div className="container mx-auto px-4 md:px-8">
         
         {/* Features / Benefits */}
@@ -49,25 +49,25 @@ export default function SocialProof() {
           className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24 text-center"
         >
           <motion.div variants={itemVariants} className="flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6 text-[var(--color-gold-500)]">
-              <ShieldCheck size={32} />
+            <div className="w-16 h-16 rounded-full bg-[#141418] border border-white/10 flex items-center justify-center mb-6 text-[var(--color-gold-400)] shadow-sm">
+              <ShieldCheck size={28} />
             </div>
-            <h3 className="text-white font-serif text-xl mb-3">Garantia Vitalícia</h3>
-            <p className="text-[var(--color-silver-500)] text-sm">Autenticidade da Prata 925 e manutenção especializada garantida.</p>
+            <h3 className="text-white font-serif text-xl mb-2.5">Garantia Vitalícia</h3>
+            <p className="text-[var(--color-silver-400)] text-sm max-w-xs leading-relaxed">Autenticidade da Prata 925 e manutenção especializada garantida.</p>
           </motion.div>
           <motion.div variants={itemVariants} className="flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6 text-[var(--color-gold-500)]">
-              <Gem size={32} />
+            <div className="w-16 h-16 rounded-full bg-[#141418] border border-white/10 flex items-center justify-center mb-6 text-[var(--color-gold-400)] shadow-sm">
+              <Gem size={28} />
             </div>
-            <h3 className="text-white font-serif text-xl mb-3">Cravação Perfeita</h3>
-            <p className="text-[var(--color-silver-500)] text-sm">Zircônias e pedras preciosas com cravação manual de alta precisão.</p>
+            <h3 className="text-white font-serif text-xl mb-2.5">Cravação de Alta Precisão</h3>
+            <p className="text-[var(--color-silver-400)] text-sm max-w-xs leading-relaxed">Zircônias e pedras nobres com cravação manual minuciosa.</p>
           </motion.div>
           <motion.div variants={itemVariants} className="flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6 text-[var(--color-gold-500)]">
-              <Star size={32} />
+            <div className="w-16 h-16 rounded-full bg-[#141418] border border-white/10 flex items-center justify-center mb-6 text-[var(--color-gold-400)] shadow-sm">
+              <Star size={28} />
             </div>
-            <h3 className="text-white font-serif text-xl mb-3">Exclusividade</h3>
-            <p className="text-[var(--color-silver-500)] text-sm">Design proprietário e coleções em edições limitadas.</p>
+            <h3 className="text-white font-serif text-xl mb-2.5">Exclusividade Real</h3>
+            <p className="text-[var(--color-silver-400)] text-sm max-w-xs leading-relaxed">Design proprietário e coleções manufaturadas em edições limitadas.</p>
           </motion.div>
         </motion.div>
 
@@ -79,8 +79,11 @@ export default function SocialProof() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
+          <span className="text-[11px] tracking-[0.3em] text-[var(--color-gold-400)] uppercase font-medium block mb-3">
+            Depoimentos
+          </span>
           <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">Experiência Meg7</h2>
-          <p className="text-[var(--color-silver-400)]">O que nossos clientes dizem sobre nós</p>
+          <p className="text-[var(--color-silver-300)] text-sm md:text-base">O que nossos clientes dizem sobre a excelência de nossas joias</p>
         </motion.div>
 
         <motion.div 
@@ -94,18 +97,22 @@ export default function SocialProof() {
             <motion.div 
               variants={itemVariants}
               key={review.id} 
-              className="bg-white/5 p-8 border border-white/10 hover:border-[var(--color-gold-500)]/50 transition-colors"
+              className="bg-[#111115] p-8 border border-white/5 hover:border-[var(--color-gold-500)]/40 transition-all duration-300 rounded-xs shadow-lg shadow-black/20 flex flex-col justify-between"
             >
-              <div className="flex text-[var(--color-gold-500)] mb-6">
-                <Star size={16} fill="currentColor" />
-                <Star size={16} fill="currentColor" />
-                <Star size={16} fill="currentColor" />
-                <Star size={16} fill="currentColor" />
-                <Star size={16} fill="currentColor" />
+              <div>
+                <div className="flex text-[var(--color-gold-400)] mb-5 gap-1">
+                  <Star size={15} fill="currentColor" />
+                  <Star size={15} fill="currentColor" />
+                  <Star size={15} fill="currentColor" />
+                  <Star size={15} fill="currentColor" />
+                  <Star size={15} fill="currentColor" />
+                </div>
+                <p className="text-[var(--color-silver-300)] text-sm leading-relaxed mb-6 italic font-light">"{review.text}"</p>
               </div>
-              <p className="text-[var(--color-silver-400)] text-sm leading-relaxed mb-6 italic">"{review.text}"</p>
-              <h4 className="text-white font-serif">{review.name}</h4>
-              <p className="text-[var(--color-silver-600)] text-xs mt-1">Cliente Verificado</p>
+              <div className="border-t border-white/5 pt-4">
+                <h4 className="text-white font-serif text-base tracking-wide">{review.name}</h4>
+                <p className="text-[var(--color-gold-500)] text-xs mt-0.5 tracking-wider uppercase">Cliente Verificado</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
