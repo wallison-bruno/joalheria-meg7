@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -28,10 +29,10 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="w-full sm:w-auto px-8 py-4 bg-[var(--color-gold-500)] hover:bg-[var(--color-gold-400)] text-black font-semibold text-sm tracking-wider uppercase transition-colors flex items-center justify-center gap-2">
+          <Link href="/catalogo" className="w-full sm:w-auto px-8 py-4 bg-[var(--color-gold-500)] hover:bg-[var(--color-gold-400)] text-black font-semibold text-sm tracking-wider uppercase transition-colors flex items-center justify-center gap-2">
             Explorar Coleções
             <ArrowRight size={16} />
-          </button>
+          </Link>
           <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/30 text-white hover:bg-white/10 font-semibold text-sm tracking-wider uppercase transition-colors backdrop-blur-sm">
             Fale Conosco
           </button>

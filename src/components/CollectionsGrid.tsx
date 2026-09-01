@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const categories = [
   {
@@ -64,9 +65,9 @@ export default function CollectionsGrid() {
         </div>
         
         <div className="mt-16 text-center">
-          <a href="#" className="inline-block border-b border-[var(--color-gold-500)] text-[var(--color-gold-500)] pb-1 text-sm tracking-widest uppercase hover:text-white hover:border-white transition-colors">
+          <Link href="/catalogo" className="inline-block border-b border-[var(--color-gold-500)] text-[var(--color-gold-500)] pb-1 text-sm tracking-widest uppercase hover:text-white hover:border-white transition-colors">
             Ver Catálogo Completo
-          </a>
+          </Link>
         </div>
       </div>
     </section>
