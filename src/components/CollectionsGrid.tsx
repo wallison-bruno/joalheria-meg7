@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const categories = [
   {
@@ -28,20 +31,47 @@ const categories = [
   }
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+};
+
 export default function CollectionsGrid() {
   return (
     <section id="colecoes" className="py-24 bg-[var(--background)]">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <h2 className="font-serif text-3xl md:text-5xl text-white mb-4">Nossas Coleções</h2>
           <p className="text-[var(--color-silver-400)] max-w-xl mx-auto">
             Descubra as peças que eternizam momentos.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {categories.map((cat) => (
-            <div 
+            <motion.div 
+              variants={itemVariants}
               key={cat.id} 
               className="group relative h-[400px] overflow-hidden cursor-pointer"
             >
@@ -60,15 +90,21 @@ export default function CollectionsGrid() {
                 </p>
                 <div className="w-0 h-[1px] bg-[var(--color-silver-500)] group-hover:w-full transition-all duration-700"></div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
-        <div className="mt-16 text-center">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-16 text-center"
+        >
           <Link href="/catalogo" className="inline-block border-b border-[var(--color-gold-500)] text-[var(--color-gold-500)] pb-1 text-sm tracking-widest uppercase hover:text-white hover:border-white transition-colors">
             Ver Catálogo Completo
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

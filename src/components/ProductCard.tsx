@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface ProductCardProps {
   id: string | number;
@@ -15,7 +18,13 @@ export default function ProductCard({ name, category, price, image }: ProductCar
   }).format(price);
 
   return (
-    <div className="group relative bg-[var(--color-background)] border border-white/5 rounded-sm overflow-hidden flex flex-col cursor-pointer hover:border-white/20 transition-colors duration-500">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="group relative bg-[var(--color-background)] border border-white/5 rounded-sm overflow-hidden flex flex-col cursor-pointer hover:border-white/20 transition-colors duration-500"
+    >
       {/* Image Container */}
       <div className="relative aspect-[4/5] overflow-hidden bg-neutral-900">
         <Image
@@ -45,6 +54,6 @@ export default function ProductCard({ name, category, price, image }: ProductCar
           {formattedPrice}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
